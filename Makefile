@@ -24,7 +24,8 @@ SRC				= 	ft_isalpha.c \
 						ft_memchr.c \
 						ft_calloc.c \
 						ft_strdup.c \
-						ft_substr.c 
+						ft_substr.c \
+						ft_strjoin
 
 #BONUS_SCRS		= 
 
