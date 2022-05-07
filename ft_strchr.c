@@ -6,7 +6,7 @@
 /*   By: davidsan <davidsan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 13:59:24 by davidsan          #+#    #+#             */
-/*   Updated: 2022/04/28 20:03:32 by davidsan         ###   ########.fr       */
+/*   Updated: 2022/05/07 13:25:17 by davidsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strchr(const char *str, int c)
 			return ((char *)str);
 		str++;
 	}
-	if (c == '0')
+	if (c == '\0')
 		return ((char *)str);
 	return (0);
 }

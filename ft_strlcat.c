@@ -6,7 +6,7 @@
 /*   By: davidsan <davidsan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:30:00 by davidsan          #+#    #+#             */
-/*   Updated: 2022/04/25 13:29:32 by davidsan         ###   ########.fr       */
+/*   Updated: 2022/05/07 13:34:12 by davidsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,24 @@
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	size_t	index;
-	size_t	src_idx;
-	size_t	value;
+	size_t	destlen;
+	size_t	srclen;
 
-	if (size == 0)
-		return (ft_strlen(src));
-	else if (size < ft_strlen(dest))
-			value = ft_strlen(src) + size;
-	else
-		value = ft_strlen(src) + ft_strlen(dest);
-	index = 0;
-	while (dest[index])
-		index++;
-	src_idx = 0;
-	while (src[src_idx] != '\0' && index + 1 < size)
+	srclen = ft_strlen(src);
+	destlen = ft_strlen(dest);
+	if (destlen > size)
+		destlen = size;
+	if (destlen == size)
+		return (size + srclen);
+	if (srclen < size - destlen)
 	{
-		dest[index] = src[src_idx];
-		src_idx++;
-		index++;
+		ft_memcpy(dest + destlen, src, srclen);
+		dest[destlen + srclen] = '\0';
 	}
-	dest[index] = '\0';
-	return (value);
+	else
+	{
+		ft_memcpy(dest + destlen, src, size - destlen - 1);
+		dest[size - 1] = '\0';
+	}
+	return (destlen + srclen);
 }

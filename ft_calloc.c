@@ -6,7 +6,7 @@
 /*   By: davidsan <davidsan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 12:18:28 by usuario           #+#    #+#             */
-/*   Updated: 2022/05/06 18:11:46 by davidsan         ###   ########.fr       */
+/*   Updated: 2022/05/07 12:08:34 by davidsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*ft_calloc(size_t count, size_t size)
 		return (0);
 	dst = malloc(tot_size);
 	if (!dst)
-		return (0);
+		return (NULL);
 	ft_memset(dst, 0, tot_size);
 	return (dst);
 }

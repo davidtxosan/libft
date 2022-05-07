@@ -6,73 +6,94 @@
 /*   By: davidsan <davidsan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 10:15:31 by davidsan          #+#    #+#             */
-/*   Updated: 2022/05/07 10:57:08 by davidsan         ###   ########.fr       */
+/*   Updated: 2022/05/07 11:40:47 by davidsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	get_cnt(char const *s, char c)
+static size_t	ft_wordlen(char const *s, char c)
 {
-	size_t		cnt;
+	size_t	len;
 
-	cnt = 0;
-	while (*s != '\0')
+	len = 0;
+	while (*s && *s++ != c)
+		len++;
+	return (len);
+}
+
+static size_t	ft_count_word(char const *s, char c)
+{
+	size_t	count;
+
+	count = 0;
+	while (*s && *s == c)
+		s++;
+	while (*s)
 	{
-		if (*s == c)
+		count++;
+		while (*s && *s != c)
 			s++;
-		else
-		{
-			cnt++;
-			while (*s != '\0' && *s != c)
-				s++;
-		}
+		while (*s && *s == c)
+			s++;
 	}
-	return (cnt);
+	return (count);
 }
 
-char	**free_machine(char **s, size_t idx)
+static char	*ft_strndup(const char *s, size_t n)
 {
-	while (s[idx] != NULL && idx >= 0)
+	size_t	i;
+	char	*result;
+
+	result = (char *)malloc(sizeof(char) * (n + 1));
+	if (!(result))
+		return (0);
+	i = 0;
+	while (i < n)
 	{
-		free(s[idx]);
-		s[idx] = NULL;
-		idx--;
+		result[i] = s[i];
+		i++;
 	}
-	free(s);
-	s = NULL;
-	return (NULL);
+	result[i] = 0;
+	return (result);
 }
+
+static void	ft_free_arr(char **s, int i)
+{
+	while (i--)
+		free(s[i]);
+	free(s);
+}
+
+/*
+** ft_split - split a string
+*/
 
 char	**ft_split(char const *s, char c)
 {
-	size_t		idx;
-	size_t		len;
-	size_t		word_cnt;
-	char		**words;
+	char	**result;
+	size_t	count;
+	size_t	wordlen;
+	size_t	i;
 
-	words = (char **)malloc(sizeof(char *);
-
-
-	if (!s || !(words * (get_cnt(s, c) + 1))))
-		return (NULL);
-	word_cnt = get_cnt(s, c);
-	idx = 0;
-	while (*s)
+	count = ft_count_word(s, c);
+	if (!(result))
+		return (0);
+	i = 0;
+	while (i < count)
 	{
-		if (*s == c)
+		while (*s && *s == c)
 			s++;
-		else
+		wordlen = ft_wordlen(s, c);
+		result[i] = ft_strndup(s, wordlen);
+		if (!(result))
 		{
-			len = 0;
-			while (*(s + len) && *(s + len) != c)
-				len++;
-			if (idx < word_cnt && !(words[idx++] = ft_substr(s, 0, len)))
-				return (free_machine(words, idx));
-			s += len;
+			ft_free_arr(result, i - 1);
+			return (0);
 		}
+		s += wordlen;
+		i++;
 	}
-	words[idx] = 0;
-	return (words);
+	result[count] = 0;
+	return (result);
 }
-
