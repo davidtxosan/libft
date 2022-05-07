@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davidsan <davidsan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/06 20:39:22 by davidsan          #+#    #+#             */
-/*   Updated: 2022/05/07 10:26:44 by davidsan         ###   ########.fr       */
+/*   Created: 2022/05/07 10:12:27 by davidsan          #+#    #+#             */
+/*   Updated: 2022/05/07 10:13:00 by davidsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	len1;
-	size_t	len2;
-	char	*result;
+	size_t		size_s1;
 
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	result = (char *)malloc(sizeof(char) + (len1 + len2 + 1));
-	if (!(result))
+	if (!s1 || !set)
 		return (0);
-	ft_memcpy(result, s1, len1);
-	ft_memcpy(result + len1, s2, len2);
-	result[len1 + len2] = '\0';
-	return (result);
+	while (ft_strchr(set, *s1) && *s1 != '\0')
+		s1++;
+	size_s1 = ft_strlen((char *)s1);
+	while (ft_strchr(set, s1[size_s1]) && size_s1 != 0)
+		size_s1--;
+	return (ft_substr((char *)s1, 0, size_s1 + 1));
 }
