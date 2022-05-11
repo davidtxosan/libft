@@ -13,7 +13,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
  
 
  
-# Make data base, printed on Tue May 10 12:11:47 2022
+# Make data base, printed on Wed May 11 18:40:33 2022
  
 
 # Variables
@@ -69,8 +69,6 @@ XMODIFIERS = @im=ibus
 CURDIR := /home/usuario/Escritorio/42Cursus/libft
 # makefile
 SHELL = /bin/sh
-# makefile (from 'Makefile', line 58)
-RM = @rm -f
 # environment
 SNAP_DATA = /var/snap/code/95
 # environment
@@ -146,14 +144,23 @@ LS_COLORS =
 # environment
 XDG_SESSION_DESKTOP = ubuntu
 # environment
+ 
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+ 
 # environment
+ 
 GIO_LAUNCHED_DESKTOP_FILE_PID = 9744
+ 
 # automatic
+ 
 %F = $(notdir $%)
+ 
 # environment
+ 
 DISPLAY = :0
+ 
 # environment
+ 
 VSCODE_PIPE_LOGGING = true
 # environment
 SNAP_INSTANCE_KEY = 
@@ -172,7 +179,7 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /home/usuario
 # makefile (from 'Makefile', line 39)
-BONUS_SCRS = ft_lstnew_bonus.c ft_lstadd_front_bonus ft_lstadd_back_bonus ft_lstlast_bonus.c ft_lstsize_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c ft_lstdelone_bonus.c 
+BONUS_SCRS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstadd_back_bonus.c ft_lstlast_bonus.c ft_lstsize_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c ft_lstdelone_bonus.c
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
@@ -222,7 +229,7 @@ USER = usuario
 # environment
 SNAP_REVISION = 95
 # makefile
-.DEFAULT_GOAL := all
+.DEFAULT_GOAL := libft.a
 # environment
 XDG_CURRENT_DESKTOP = Unity
 # makefile (from 'Makefile', line 1)
@@ -288,7 +295,7 @@ LANG = C
 # environment
 VSCODE_PID = 9786
 # variable set hash-table stats:
-# Load=127/1024=12%, Rehash=0, Collisions=20/155=13%
+# Load=126/1024=12%, Rehash=0, Collisions=21/162=13%
 
 # Pattern-specific Variable Values
 
@@ -296,9 +303,9 @@ VSCODE_PID = 9786
 
 # Directories
 
-# . (device 2053, inode 1048641): 84 files, no impossibilities.
+# . (device 2053, inode 1048641): 51 files, no impossibilities.
 
-# 84 files, no impossibilities in 1 directories.
+# 51 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -312,7 +319,9 @@ all: libft.a
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/8=0%
 
 .PHONY: all clean fclean re
 #  Implicit rule search has not been done.
@@ -320,21 +329,43 @@ all: libft.a
 #  File has not been updated.
 
 # Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-10 12:11:40.02885323
- 
+#  Last modified 2022-05-11 18:40:31.198422712
 #  File has been updated.
- 
 #  Successfully updated.
- 
 
 libft.a:
 #  Implicit rule search has not been done.
-#  Last modified 2022-05-10 12:04:37.409489285
+#  Implicit/static pattern stem: ''
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 72):
+#  Needs to be updated (-q is set).
+# automatic
+# @ := libft.a
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := 
+# automatic
+# | := 
+# automatic
+# < := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=6/16=38%
+#  recipe to execute (from 'Makefile', line 59):
 			@gcc $(CFLAGS) -c $(SRC) -I ./
 			@ar rcs $(NAME) $(OBJS)
 			@echo "ejecutable creado"
@@ -343,7 +374,7 @@ bonus: libft.a
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 64):
+#  recipe to execute (from 'Makefile', line 66):
 			@gcc $(FLAGS) -c $(BONUS_SCRS) -I ./
 			ar rc $(NAME) $(BONUS_OBJS)
 
@@ -352,8 +383,8 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 81):
-			${RM} $(NAME)
+#  recipe to execute (from 'Makefile', line 74):
+			rm -f $(NAME)
 			@echo "limpieza de ejecutable"
 
 # Not a target:
@@ -373,8 +404,8 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 77):
-			${RM} $(OBJS)
+#  recipe to execute (from 'Makefile', line 70):
+			rm -f $(OBJS) $(BONUS_OBJS)
 			@echo "limpieza archivos .o"
 
 # files hash-table stats:
@@ -385,12 +416,12 @@ clean:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 94 / storage = 1173 B / avg = 12 B
-# current buf: size = 8162 B / used = 1173 B / count = 94 / avg = 12 B
+# strcache buffers: 1 (0) / strings = 62 / storage = 756 B / avg = 12 B
+# current buf: size = 8162 B / used = 756 B / count = 62 / avg = 12 B
 
-# strcache performance: lookups = 116 / hit rate = 18%
+# strcache performance: lookups = 84 / hit rate = 26%
 # hash-table stats:
-# Load=94/8192=1%, Rehash=0, Collisions=2/116=2%
-# Finished Make data base on Tue May 10 12:11:47 2022
+# Load=62/8192=1%, Rehash=0, Collisions=1/84=1%
+# Finished Make data base on Wed May 11 18:40:33 2022
 
  
