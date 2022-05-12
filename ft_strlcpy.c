@@ -6,7 +6,7 @@
 /*   By: davidsan <davidsan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 11:26:41 by davidsan          #+#    #+#             */
-/*   Updated: 2022/04/28 19:56:24 by davidsan         ###   ########.fr       */
+/*   Updated: 2022/05/12 19:20:03 by davidsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,15 @@
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	index;
-	size_t	c;
 
 	index = 0;
-	c = 0;
-	if (!dest || !src)
-		return (0);
-	while (src[c])
-		c++;
-	while (src[index] && index + 1 < size)
+	if (size == 0)
+		return (ft_strlen(src));
+	while (src[index] != '\0' && index < size - 1)
 	{
 		dest[index] = src[index];
 		index++;
 	}
-	if (size)
-		dest[index] = '\0';
-	return (c);
+	dest[index] = '\0';
+	return (ft_strlen(src));
 }
