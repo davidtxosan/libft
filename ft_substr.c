@@ -6,7 +6,7 @@
 /*   By: davidsan <davidsan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 13:19:15 by usuario           #+#    #+#             */
-/*   Updated: 2022/05/13 14:02:25 by davidsan         ###   ########.fr       */
+/*   Updated: 2022/05/13 16:44:59 by davidsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,23 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned int	index;
-	char			*modified_s;
-	unsigned int	unsignedlenght;
+	char	*ret;
+	size_t	slen;
 
-	unsignedlenght = (unsigned int)ft_strlen((char *)s);
-	modified_s = malloc(sizeof(char) * (len + 1));
-	if (!s || !(modified_s))
+	if (!s)
 		return (0);
-	index = 0;
-	while (start < unsignedlenght && s[start + index] && index < len)
+	slen = ft_strlen(s);
+	if (slen <= start)
 	{
-		modified_s[index] = s[start + index];
-		index++;
+		ret = (char *) malloc(sizeof(char));
+		*ret = 0;
+		return (ret);
 	}
-	modified_s[index] = '\0';
-	return (modified_s);
+	if (slen - start < len)
+		len = slen - start;
+	ret = (char *) malloc((len + 1) * sizeof(char));
+	if (!ret)
+		return (0);
+	ft_strlcpy(ret, &s[start], len + 1);
+	return (ret);
 }
