@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Thu May 12 20:12:47 2022
+# Make data base, printed on Fri May 13 15:58:24 2022
 
 # Variables
 
@@ -45,7 +45,7 @@ VSCODE_VERBOSE_LOGGING = true
 # makefile (from `Makefile', line 51)
 OBJS = $(SRC:%.c=%.o)
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000c_v80032pt/T/vscode-ipc-660e1a57-9cdc-46a4-af84-04bcf336bcd0.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000c_v80032pt/T/vscode-ipc-7f11a0a5-35be-4a5b-b499-b9a80f2299ee.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -57,7 +57,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.ZS2AFbie5h/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.snxJEgPqhw/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -79,7 +79,7 @@ VSCODE_CODE_CACHE_PATH = /Users/davidsan/Library/Application Support/Code/Cached
 # environment
 LOGNAME = davidsan
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -121,7 +121,7 @@ MFLAGS = -Rrqp
 # environment
 MAIL = davidsan@student.42malaga.com
 # environment
-XPC_SERVICE_NAME = com.microsoft.VSCode.2396
+XPC_SERVICE_NAME = com.microsoft.VSCode.2096
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -147,7 +147,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 89433
+VSCODE_PID = 50089
 # variable set hash-table stats:
 # Load=68/1024=7%, Rehash=0, Collisions=3/102=3%
 
@@ -191,7 +191,7 @@ all: libft.a
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-12 20:12:21
+#  Last modified 2022-05-12 20:41:13
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -281,6 +281,6 @@ clean:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Thu May 12 20:12:47 2022
+# Finished Make data base on Fri May 13 15:58:24 2022
 
  

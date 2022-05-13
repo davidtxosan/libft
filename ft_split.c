@@ -6,7 +6,7 @@
 /*   By: davidsan <davidsan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 10:15:31 by davidsan          #+#    #+#             */
-/*   Updated: 2022/05/12 20:27:37 by davidsan         ###   ########.fr       */
+/*   Updated: 2022/05/12 20:35:10 by davidsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ char	**ft_split(char const *s, char c)
 	int		start;
 	char	**str;
 
-	if ((s == 0) || (c == 0))
-		return (NULL);
 	number = ft_count_word(s, c);
 	str = malloc((sizeof(char *) * (number + 1)));
+	if (!s || !(str))
+		return (NULL);
 	i = 0;
 	j = -1;
 	while (++j < number)
@@ -56,17 +56,4 @@ char	**ft_split(char const *s, char c)
 	}
 	str[j] = NULL;
 	return (str);
-}
-
-char	**free_machine(char **s, size_t index)
-{
-	while (s[index] != NULL && index >= 0)
-	{
-		free(s[index]);
-		s[index] = NULL;
-		index--;
-	}
-	free(s);
-	s = NULL;
-	return (NULL);
 }

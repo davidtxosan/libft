@@ -6,20 +6,25 @@
 /*   By: davidsan <davidsan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 13:39:08 by davidsan          #+#    #+#             */
-/*   Updated: 2022/04/29 20:37:09 by davidsan         ###   ########.fr       */
+/*   Updated: 2022/05/13 13:54:51 by davidsan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t	len;
+	int		len;
+	char	ch;
 
-	len = ft_strlen(str);
-	while (len != 0 && *(str + len) != c)
-			len--;
-	if (*(str + len) == c)
-		return ((char *)(str + len));
-	return (0);
+	ch = (unsigned char)c;
+	len = ft_strlen((char *)s);
+	if (ch == '\0')
+		return ((char *)(&s[len]));
+	while (--len >= 0)
+	{
+		if (s[len] == ch)
+			return ((char *)(&s[len]));
+	}
+	return (NULL);
 }
